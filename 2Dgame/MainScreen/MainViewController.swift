@@ -5,10 +5,10 @@
 //  Created by Мой Macbook on 13.02.2024.
 //
 
-import UIKit
 import SnapKit
+import UIKit
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
 
     //MARK: - Properties
     

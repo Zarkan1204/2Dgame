@@ -11,14 +11,16 @@
 		FA43B7452B7B8C2F0087758C /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43B7442B7B8C2F0087758C /* GameViewController.swift */; };
 		FA43B7472B7B8C450087758C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43B7462B7B8C450087758C /* SettingsViewController.swift */; };
 		FA43B74C2B7B8CF30087758C /* UIStackView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43B74B2B7B8CF30087758C /* UIStackView + Extensions.swift */; };
-		FA43B74E2B7B8D620087758C /* UIButton + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43B74D2B7B8D620087758C /* UIButton + Extensions.swift */; };
+		FA43B74E2B7B8D620087758C /* MainButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43B74D2B7B8D620087758C /* MainButtons.swift */; };
 		FA43B7512B7B8EEF0087758C /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA43B7502B7B8EEF0087758C /* ScoreViewController.swift */; };
 		FA490CE02B7B88090086DFDE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA490CDF2B7B88090086DFDE /* MainViewController.swift */; };
 		FA4AEBE32B7B4D4E0067DE9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4AEBE22B7B4D4E0067DE9F /* AppDelegate.swift */; };
 		FA4AEBE52B7B4D4E0067DE9F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4AEBE42B7B4D4E0067DE9F /* SceneDelegate.swift */; };
 		FA4AEBEC2B7B4D4F0067DE9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA4AEBEB2B7B4D4F0067DE9F /* Assets.xcassets */; };
 		FA4AEBEF2B7B4D4F0067DE9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA4AEBED2B7B4D4F0067DE9F /* LaunchScreen.storyboard */; };
+		FA6188172B7F88F300F26128 /* SpeedButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6188162B7F88F300F26128 /* SpeedButtons.swift */; };
 		FA6B51192B7CA34900CD90DC /* CGFloat + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B51182B7CA34900CD90DC /* CGFloat + Extensions.swift */; };
+		FAAA73C22B7F42920053A27D /* UILabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAA73C12B7F42920053A27D /* UILabel + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,7 +30,7 @@
 		FA43B7442B7B8C2F0087758C /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		FA43B7462B7B8C450087758C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FA43B74B2B7B8CF30087758C /* UIStackView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + Extensions.swift"; sourceTree = "<group>"; };
-		FA43B74D2B7B8D620087758C /* UIButton + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Extensions.swift"; sourceTree = "<group>"; };
+		FA43B74D2B7B8D620087758C /* MainButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButtons.swift; sourceTree = "<group>"; };
 		FA43B7502B7B8EEF0087758C /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 		FA490CDF2B7B88090086DFDE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		FA4AEBDF2B7B4D4E0067DE9F /* 2Dgame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 2Dgame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -37,7 +39,9 @@
 		FA4AEBEB2B7B4D4F0067DE9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA4AEBEE2B7B4D4F0067DE9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA4AEBF02B7B4D4F0067DE9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA6188162B7F88F300F26128 /* SpeedButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedButtons.swift; sourceTree = "<group>"; };
 		FA6B51182B7CA34900CD90DC /* CGFloat + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat + Extensions.swift"; sourceTree = "<group>"; };
+		FAAA73C12B7F42920053A27D /* UILabel + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +101,10 @@
 			isa = PBXGroup;
 			children = (
 				FA43B74B2B7B8CF30087758C /* UIStackView + Extensions.swift */,
-				FA43B74D2B7B8D620087758C /* UIButton + Extensions.swift */,
 				FA6B51182B7CA34900CD90DC /* CGFloat + Extensions.swift */,
+				FAAA73C12B7F42920053A27D /* UILabel + Extension.swift */,
+				FA43B74D2B7B8D620087758C /* MainButtons.swift */,
+				FA6188162B7F88F300F26128 /* SpeedButtons.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -276,12 +282,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA6188172B7F88F300F26128 /* SpeedButtons.swift in Sources */,
 				FA43B7452B7B8C2F0087758C /* GameViewController.swift in Sources */,
 				FA43B74C2B7B8CF30087758C /* UIStackView + Extensions.swift in Sources */,
-				FA43B74E2B7B8D620087758C /* UIButton + Extensions.swift in Sources */,
+				FA43B74E2B7B8D620087758C /* MainButtons.swift in Sources */,
 				FA4AEBE32B7B4D4E0067DE9F /* AppDelegate.swift in Sources */,
 				FA4AEBE52B7B4D4E0067DE9F /* SceneDelegate.swift in Sources */,
 				FA43B7472B7B8C450087758C /* SettingsViewController.swift in Sources */,
+				FAAA73C22B7F42920053A27D /* UILabel + Extension.swift in Sources */,
 				FA6B51192B7CA34900CD90DC /* CGFloat + Extensions.swift in Sources */,
 				FA490CE02B7B88090086DFDE /* MainViewController.swift in Sources */,
 				FA43B7512B7B8EEF0087758C /* ScoreViewController.swift in Sources */,

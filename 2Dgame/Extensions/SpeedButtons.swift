@@ -1,15 +1,15 @@
 //
-//  UIButton + Extensions.swift
+//  SpeedButtons.swift
 //  2Dgame
 //
-//  Created by Мой Macbook on 13.02.2024.
+//  Created by Мой Macbook on 16.02.2024.
 //
 
 import Foundation
 
 import UIKit
 
-class MainButton: UIButton {
+class SpeedButtons: UIButton {
     
     //MARK: - Life Cycle
     
@@ -31,9 +31,10 @@ class MainButton: UIButton {
     //MARK: - Functions
     
     private func configure() {
-        backgroundColor = .systemBlue
+        backgroundColor = .systemGray
         titleLabel?.font = .systemFont(ofSize: .fontSize)
         tintColor = .white
-        layer.cornerRadius = .buttonCornerRadius
+        layer.cornerRadius = .speedButtonRadius
     }
 }
+
