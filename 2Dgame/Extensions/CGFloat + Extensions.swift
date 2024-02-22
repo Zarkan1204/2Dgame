@@ -41,4 +41,9 @@ extension CGFloat {
     static let userPhotoHeight = 100
     
     static let userPhotoCornerRadius: CGFloat = 50
+    
+    //ScoreVC
+    static let scoreFontSize: CGFloat = 22
+    static let scoreHeight: CGFloat = 40
+    static let scoreInsert: CGFloat = 8
 }

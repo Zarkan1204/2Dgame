@@ -21,6 +21,9 @@
 		FA6188172B7F88F300F26128 /* SpeedButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6188162B7F88F300F26128 /* SpeedButtons.swift */; };
 		FA6B51192B7CA34900CD90DC /* CGFloat + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B51182B7CA34900CD90DC /* CGFloat + Extensions.swift */; };
 		FAAA73C22B7F42920053A27D /* UILabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAA73C12B7F42920053A27D /* UILabel + Extension.swift */; };
+		FAD45CDB2B836F6A00B185AD /* ScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD45CDA2B836F6A00B185AD /* ScoreTableViewCell.swift */; };
+		FAD45CDD2B836FD000B185AD /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD45CDC2B836FD000B185AD /* UIView + Extension.swift */; };
+		FAD45CDF2B83775B00B185AD /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD45CDE2B83775B00B185AD /* UserModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,9 @@
 		FA6188162B7F88F300F26128 /* SpeedButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedButtons.swift; sourceTree = "<group>"; };
 		FA6B51182B7CA34900CD90DC /* CGFloat + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat + Extensions.swift"; sourceTree = "<group>"; };
 		FAAA73C12B7F42920053A27D /* UILabel + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extension.swift"; sourceTree = "<group>"; };
+		FAD45CDA2B836F6A00B185AD /* ScoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreTableViewCell.swift; sourceTree = "<group>"; };
+		FAD45CDC2B836FD000B185AD /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
+		FAD45CDE2B83775B00B185AD /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +111,7 @@
 				FAAA73C12B7F42920053A27D /* UILabel + Extension.swift */,
 				FA43B74D2B7B8D620087758C /* MainButtons.swift */,
 				FA6188162B7F88F300F26128 /* SpeedButtons.swift */,
+				FAD45CDC2B836FD000B185AD /* UIView + Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -113,6 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				FA43B7502B7B8EEF0087758C /* ScoreViewController.swift */,
+				FAD45CDA2B836F6A00B185AD /* ScoreTableViewCell.swift */,
+				FAD45CDE2B83775B00B185AD /* UserModel.swift */,
 			);
 			path = ScoreScreen;
 			sourceTree = "<group>";
@@ -290,8 +299,11 @@
 				FA4AEBE52B7B4D4E0067DE9F /* SceneDelegate.swift in Sources */,
 				FA43B7472B7B8C450087758C /* SettingsViewController.swift in Sources */,
 				FAAA73C22B7F42920053A27D /* UILabel + Extension.swift in Sources */,
+				FAD45CDF2B83775B00B185AD /* UserModel.swift in Sources */,
 				FA6B51192B7CA34900CD90DC /* CGFloat + Extensions.swift in Sources */,
+				FAD45CDD2B836FD000B185AD /* UIView + Extension.swift in Sources */,
 				FA490CE02B7B88090086DFDE /* MainViewController.swift in Sources */,
+				FAD45CDB2B836F6A00B185AD /* ScoreTableViewCell.swift in Sources */,
 				FA43B7512B7B8EEF0087758C /* ScoreViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

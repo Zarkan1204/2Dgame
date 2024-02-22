@@ -61,7 +61,7 @@ final class SettingsViewController: UIViewController {
     private var speedStackView = UIStackView()
     
     private var avatarLabel = UILabel(text: "Choose an avatar", font: .systemFont(ofSize: .fontSize), textColor: .black)
-
+    
     private let userPhotoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.isUserInteractionEnabled = true
@@ -81,6 +81,7 @@ final class SettingsViewController: UIViewController {
         
         setupViews()
         setupLayout()
+        openImagePicker()
     }
     
     //MARK: - @objc Functions
@@ -93,7 +94,19 @@ final class SettingsViewController: UIViewController {
         print("save")
     }
     
+    @objc private func chooseUserPhoto() {
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.delegate = self
+        present(picker, animated: true)
+    }
+    
     //MARK: - Functions
+    
+    private func openImagePicker() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(chooseUserPhoto))
+        userPhotoImageView.addGestureRecognizer(tapGesture)
+    }
     
     private func setupViews() {
         title = "Settings"
@@ -178,5 +191,15 @@ final class SettingsViewController: UIViewController {
             make.width.equalTo(CGFloat.userPhotoWidth)
             make.height.equalTo(CGFloat.userPhotoHeight)
         }
+    }
+}
+
+//MARK: - UIImagePickerControllerDelegate, UINavigationControllerDelegate
+
+extension SettingsViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[.originalImage] as? UIImage else { return }
+        userPhotoImageView.image = image
+        picker.dismiss(animated: true)
     }
 }
