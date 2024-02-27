@@ -19,7 +19,7 @@ extension CGFloat {
     static let cornerRadius: CGFloat = 16
     static let fontSize: CGFloat = 16
     
-   //SettingsVC
+    //SettingsVC
     static let labelWidth = 200
     static let labelHeight = 40
     
@@ -41,9 +41,33 @@ extension CGFloat {
     static let userPhotoHeight = 100
     
     static let userPhotoCornerRadius: CGFloat = 50
+    static let segmentInset: CGFloat = 16
+    static let segmentHeight = 40
     
     //ScoreVC
     static let scoreFontSize: CGFloat = 22
     static let scoreHeight: CGFloat = 40
     static let scoreInsert: CGFloat = 8
+    
+    //GameVC
+    static let carStep: CGFloat = 25
+    static let carHeight: CGFloat = 100
+    static let carWidth: CGFloat = 100
+    static let bottomInset: CGFloat = 90
+    
+    static let moveManButtonWidth: CGFloat = 80
+    static let moveManButtonHeight: CGFloat = 40
+    static let leftButtonInset: CGFloat = 20
+    static let rightButtonInset: CGFloat = 100
+    static let sideInset: CGFloat = 30
+    
+    static let scoreLabelWidth: CGFloat = 150
+    static let scoreLabelHeight: CGFloat = 30
+    
+    static let timeInterval = 0.003
+}
+
+enum ScreenSize {
+    static let height = UIScreen.main.bounds.height
+    static let width = UIScreen.main.bounds.width
 }

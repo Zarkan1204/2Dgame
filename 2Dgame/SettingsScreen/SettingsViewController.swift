@@ -53,12 +53,18 @@ final class SettingsViewController: UIViewController {
     
     private var speedLabel = UILabel(text: "Game speed", font: .systemFont(ofSize: .fontSize), textColor: .black)
     
-    private lazy var lowSpeedButton = SpeedButtons(text: "Low")
-    private lazy var midSpeedButton = SpeedButtons(text: "Mid")
-    private lazy var hightSpeedButton = SpeedButtons(text: "Hight")
+    private lazy var speedSegment: UISegmentedControl = {
+        let segment = UISegmentedControl(items: ["Easy",
+                                                 "Medium",
+                                                 "hard"])
+        segment.translatesAutoresizingMaskIntoConstraints = false
+        segment.addTarget(self,
+                          action: #selector(speedChanged),
+                          for: .valueChanged)
+        segment.backgroundColor = .systemGray5
+        return segment
+    }()
     
-    private var buttonsSpeedStackView = UIStackView()
-    private var speedStackView = UIStackView()
     
     private var avatarLabel = UILabel(text: "Choose an avatar", font: .systemFont(ofSize: .fontSize), textColor: .black)
     
@@ -74,6 +80,8 @@ final class SettingsViewController: UIViewController {
         return imageView
     }()
     
+    private var gameSpeed: Speed = .easy
+    
     //MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -88,6 +96,11 @@ final class SettingsViewController: UIViewController {
     
     @objc private func textFieldShouldReturn() {
         view.endEditing(true)
+    }
+    
+    @objc private func speedChanged(sender: UISegmentedControl) {
+        gameSpeed = SpeedManager.shared.setSpeed(sender: sender.selectedSegmentIndex)
+        SpeedManager.shared.saveDifficulty(speed: gameSpeed)
     }
     
     @objc private func saveSettings() {
@@ -123,11 +136,7 @@ final class SettingsViewController: UIViewController {
         obstaclesStackView = UIStackView(arrangedSubviews: [obstaclesLabel, carStackView], axis: .vertical, spacing: CGFloat.stackSpacing)
         view.addSubview(obstaclesStackView)
         
-        buttonsSpeedStackView = UIStackView(arrangedSubviews: [lowSpeedButton, midSpeedButton, hightSpeedButton], axis: .horizontal, spacing: CGFloat.stackSpacing)
-        view.addSubview(buttonsSpeedStackView)
-        
-        speedStackView = UIStackView(arrangedSubviews: [speedLabel, buttonsSpeedStackView], axis: .vertical, spacing: CGFloat.stackSpacing)
-        view.addSubview(speedStackView)
+        view.addSubview(speedSegment)
         
         view.addSubview(avatarLabel)
         view.addSubview(userPhotoImageView)
@@ -160,28 +169,15 @@ final class SettingsViewController: UIViewController {
             make.height.equalTo(CGFloat.pictureHeight)
         }
         
-        speedStackView.snp.makeConstraints { make in
-            make.top.equalTo(obstaclesStackView.snp.bottom).offset(CGFloat.topInset)
-            make.left.equalToSuperview().offset(CGFloat.leftInset)
-        }
-        
-        lowSpeedButton.snp.makeConstraints { make in
-            make.width.equalTo(CGFloat.buttonWidth)
-            make.height.equalTo(CGFloat.buttonHeight)
-        }
-        
-        midSpeedButton.snp.makeConstraints { make in
-            make.width.equalTo(CGFloat.buttonWidth)
-            make.height.equalTo(CGFloat.buttonHeight)
-        }
-        
-        hightSpeedButton.snp.makeConstraints { make in
-            make.width.equalTo(CGFloat.buttonWidth)
-            make.height.equalTo(CGFloat.buttonHeight)
+        speedSegment.snp.makeConstraints { make in
+            make.top.equalTo(obstaclesStackView.snp.bottom).offset(CGFloat.segmentInset)
+            make.leading.equalTo(view.snp.leading).offset(CGFloat.segmentInset)
+            make.trailing.equalTo(view.snp.trailing).offset(-CGFloat.segmentInset)
+            make.height.equalTo(CGFloat.segmentHeight)
         }
         
         avatarLabel.snp.makeConstraints { make in
-            make.top.equalTo(speedStackView.snp.bottom).offset(CGFloat.topInset)
+            make.top.equalTo(speedSegment.snp.bottom).offset(CGFloat.topInset)
             make.left.equalToSuperview().offset(CGFloat.leftInset)
         }
         

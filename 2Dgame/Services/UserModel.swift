@@ -9,7 +9,7 @@ import UIKit
 
 struct User {
     var name: String
-    var score: Int
+    var score: Int = 0
     var avatar: UIImage?
     
     static func makeModel() -> [User] {
