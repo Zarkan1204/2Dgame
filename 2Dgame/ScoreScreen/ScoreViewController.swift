@@ -10,13 +10,11 @@ import UIKit
 
 class ScoreViewController: UIViewController {
     
-    private var userModel = User.makeModel()
-    
     //MARK: - Properties
     
     private lazy var scoreTableView: UITableView = {
         let tableView = UITableView()
-        tableView.estimatedRowHeight = 50
+        tableView.estimatedRowHeight = .rowHeight
         tableView.register(ScoreTableViewCell.self, forCellReuseIdentifier: ScoreTableViewCell.identifier)
         tableView.dataSource = self
         tableView.delegate = self
@@ -35,6 +33,7 @@ class ScoreViewController: UIViewController {
     //MARK: - Functions
     
     private func setupViews() {
+        title = Constants.title
         view.backgroundColor = .white
         view.addSubview(scoreTableView)
     }
@@ -51,13 +50,19 @@ class ScoreViewController: UIViewController {
 
 extension ScoreViewController:  UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        userModel.count
+       1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ScoreTableViewCell.identifier, for: indexPath) as? ScoreTableViewCell else { return UITableViewCell()
         }
-        cell.configure(with: userModel[indexPath.row])
+       
         return cell
     }
+}
+
+//MARK: - Constants
+
+private enum Constants {
+    static let title = "Results table"
 }

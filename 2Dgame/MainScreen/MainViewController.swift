@@ -12,6 +12,12 @@ final class MainViewController: UIViewController {
 
     //MARK: - Properties
     
+    private let roadImageView: UIImageView = {
+        let roadImage = UIImageView()
+        roadImage.image = UIImage(named: "road")
+        return roadImage
+    }()
+    
     private lazy var startButton = MainButton(text: "START")
     private lazy var settingsButton = MainButton(text: "SETTINGS")
     private lazy var recordsButton = MainButton(text: "RECORDS")
@@ -28,8 +34,8 @@ final class MainViewController: UIViewController {
     }
     
     private func setupViews() {
-        view.backgroundColor = .white
-        
+        roadImageView.frame  = view.bounds
+        view.addSubview(roadImageView)
         stackView = UIStackView(arrangedSubviews: [startButton, settingsButton, recordsButton], axis: .vertical, spacing: CGFloat.stackSpacing)
         view.addSubview(stackView)
         

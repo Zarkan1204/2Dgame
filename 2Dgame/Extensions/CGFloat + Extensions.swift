@@ -43,17 +43,19 @@ extension CGFloat {
     static let userPhotoCornerRadius: CGFloat = 50
     static let segmentInset: CGFloat = 16
     static let segmentHeight = 40
+    static let leftPaddingWidth: CGFloat = 10
     
     //ScoreVC
     static let scoreFontSize: CGFloat = 22
     static let scoreHeight: CGFloat = 40
     static let scoreInsert: CGFloat = 8
+    static let rowHeight: CGFloat = 50
     
     //GameVC
     static let carStep: CGFloat = 25
-    static let carHeight: CGFloat = 100
-    static let carWidth: CGFloat = 100
-    static let bottomInset: CGFloat = 90
+    static let carHeight: CGFloat = 80
+    static let carWidth: CGFloat = 80
+    static let bottomInset: CGFloat = 130
     
     static let moveManButtonWidth: CGFloat = 80
     static let moveManButtonHeight: CGFloat = 40
@@ -65,6 +67,7 @@ extension CGFloat {
     static let scoreLabelHeight: CGFloat = 30
     
     static let timeInterval = 0.003
+    static let minimumScaleFactor = 0.5
 }
 
 enum ScreenSize {

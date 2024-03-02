@@ -12,17 +12,17 @@ final class SettingsViewController: UIViewController {
     
     //MARK: - Properties
     
-    private var nameLabel = UILabel(text: "Player name", font: .systemFont(ofSize: .fontSize), textColor: .black)
+    private var nameLabel = UILabel(text: Constants.playerName, font: .systemFont(ofSize: .fontSize), textColor: .black)
     
     private lazy var nameTextfield: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "enter your name"
+        textField.placeholder = Constants.placeholder
         textField.backgroundColor = .systemGray5
         textField.layer.cornerRadius = .cornerRadius
         textField.font = UIFont.systemFont(ofSize: .fontSize, weight: .regular)
         textField.textAlignment = .left
         textField.addTarget(self, action: #selector(textFieldShouldReturn), for: .editingDidEndOnExit)
-        let leftPaddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: textField.frame.height))
+        let leftPaddingView = UIView(frame: CGRect(x: .zero, y: .zero, width: .leftPaddingWidth, height: textField.frame.height))
         textField.leftView = leftPaddingView
         textField.leftViewMode = .always
         return textField
@@ -30,12 +30,12 @@ final class SettingsViewController: UIViewController {
     
     private var nameStackView = UIStackView()
     
-    private var obstaclesLabel = UILabel(text: "Selection obstacles", font: .systemFont(ofSize: .fontSize), textColor: .black)
+    private var obstaclesLabel = UILabel(text: Constants.selectionObstacles, font: .systemFont(ofSize: .fontSize), textColor: .black)
     
     private var yellowCarPicture: UIImageView = {
         let imageView = UIImageView()
         imageView.isUserInteractionEnabled = true
-        imageView.image = UIImage(named: "yellowCar")
+        imageView.image = UIImage(named: Constants.yellowCar)
         imageView.clipsToBounds = true
         return imageView
     }()
@@ -43,7 +43,7 @@ final class SettingsViewController: UIViewController {
     private var redCarPicture: UIImageView = {
         let imageView = UIImageView()
         imageView.isUserInteractionEnabled = true
-        imageView.image = UIImage(named: "redCar")
+        imageView.image = UIImage(named: Constants.redCar)
         imageView.clipsToBounds = true
         return imageView
     }()
@@ -51,12 +51,12 @@ final class SettingsViewController: UIViewController {
     private var carStackView = UIStackView()
     private var obstaclesStackView = UIStackView()
     
-    private var speedLabel = UILabel(text: "Game speed", font: .systemFont(ofSize: .fontSize), textColor: .black)
+    private var speedLabel = UILabel(text: Constants.gameSpeed, font: .systemFont(ofSize: .fontSize), textColor: .black)
     
     private lazy var speedSegment: UISegmentedControl = {
-        let segment = UISegmentedControl(items: ["Easy",
-                                                 "Medium",
-                                                 "hard"])
+        let segment = UISegmentedControl(items: [Constants.easy,
+                                                 Constants.medium,
+                                                 Constants.hard])
         segment.translatesAutoresizingMaskIntoConstraints = false
         segment.addTarget(self,
                           action: #selector(speedChanged),
@@ -65,18 +65,19 @@ final class SettingsViewController: UIViewController {
         return segment
     }()
     
+    private var avatarLabel = UILabel(text: Constants.chooseAvatar, font: .systemFont(ofSize: .fontSize), textColor: .black)
     
-    private var avatarLabel = UILabel(text: "Choose an avatar", font: .systemFont(ofSize: .fontSize), textColor: .black)
-    
-    private let userPhotoImageView: UIImageView = {
+    private lazy var userPhotoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.isUserInteractionEnabled = true
         imageView.backgroundColor = .systemGray
         imageView.layer.cornerRadius = .userPhotoCornerRadius
         imageView.clipsToBounds = true
-        imageView.image = UIImage(systemName: "plus")
+        imageView.image = UIImage(systemName: Constants.plus)
         imageView.tintColor = .white
         imageView.contentMode = .scaleAspectFit
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(chooseUserPhoto))
+        imageView.addGestureRecognizer(tapGesture)
         return imageView
     }()
     
@@ -89,7 +90,6 @@ final class SettingsViewController: UIViewController {
         
         setupViews()
         setupLayout()
-        openImagePicker()
     }
     
     //MARK: - @objc Functions
@@ -116,16 +116,10 @@ final class SettingsViewController: UIViewController {
     
     //MARK: - Functions
     
-    private func openImagePicker() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(chooseUserPhoto))
-        userPhotoImageView.addGestureRecognizer(tapGesture)
-    }
-    
     private func setupViews() {
-        title = "Settings"
+        title = Constants.title
         view.backgroundColor = .white
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveSettings))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: Constants.save, style: .plain, target: self, action: #selector(saveSettings))
         
         nameStackView = UIStackView(arrangedSubviews: [nameLabel, nameTextfield], axis: .vertical, spacing: CGFloat.stackSpacing)
         view.addSubview(nameStackView)
@@ -199,3 +193,22 @@ extension SettingsViewController: UINavigationControllerDelegate, UIImagePickerC
         picker.dismiss(animated: true)
     }
 }
+
+//MARK: - Constants
+
+private enum Constants {
+    static let playerName = "Player name"
+    static let placeholder = "enter your name"
+    static let selectionObstacles = "Selection obstacles"
+    static let yellowCar = "yellowCar"
+    static let redCar = "redCar"
+    static let gameSpeed = "Game speed"
+    static let easy = "Easy"
+    static let medium = "Medium"
+    static let hard = "Hard"
+    static let chooseAvatar = "Choose an avatar"
+    static let plus = "plus"
+    static let title = "Settings"
+    static let save = "Save"
+}
+
