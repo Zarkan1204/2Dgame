@@ -7,17 +7,12 @@
 
 import UIKit
 
-struct User {
+struct User: Codable {
     var name: String
     var score: Int = 0
     var avatar: UIImage?
     
-    static func makeModel() -> [User] {
-        var userModel = [User]()
-        userModel.append(User(name: "artem", score: 5, avatar: UIImage(named: "redCar")))
-        userModel.append(User(name: "sdgsg", score: 10, avatar: UIImage(named: "redCar")))
-        userModel.append(User(name: "qwerty", score: 15, avatar: UIImage(named: "redCar")))
-        
-        return userModel
+    enum CodingKeys: String, CodingKey {
+        case name, score
     }
 }

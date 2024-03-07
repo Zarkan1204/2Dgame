@@ -5,6 +5,7 @@
 //  Created by Мой Macbook on 19.02.2024.
 //
 
+import SnapKit
 import UIKit
 
 final class ScoreTableViewCell: UITableViewCell {

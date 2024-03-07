@@ -8,7 +8,9 @@
 import SnapKit
 import UIKit
 
-class ScoreViewController: UIViewController {
+final class ScoreViewController: UIViewController {
+    
+    private var users: [User] = []
     
     //MARK: - Properties
     
@@ -50,13 +52,13 @@ class ScoreViewController: UIViewController {
 
 extension ScoreViewController:  UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       1
+        users.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ScoreTableViewCell.identifier, for: indexPath) as? ScoreTableViewCell else { return UITableViewCell()
         }
-       
+        cell.configure(with: users[indexPath.row])
         return cell
     }
 }
