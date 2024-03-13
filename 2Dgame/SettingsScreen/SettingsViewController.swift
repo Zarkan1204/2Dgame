@@ -32,21 +32,27 @@ final class SettingsViewController: UIViewController {
     
     private var obstaclesLabel = UILabel(text: Constants.selectionObstacles, font: .systemFont(ofSize: .fontSize), textColor: .black)
     
-    private var yellowCarPicture: UIImageView = {
+    private lazy var yellowCarPicture: UIImageView = {
         let imageView = UIImageView()
         imageView.isUserInteractionEnabled = true
         imageView.image = UIImage(named: Constants.yellowCar)
         imageView.clipsToBounds = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        imageView.addGestureRecognizer(tapGesture)
         return imageView
     }()
     
-    private var redCarPicture: UIImageView = {
+    private lazy var redCarPicture: UIImageView = {
         let imageView = UIImageView()
         imageView.isUserInteractionEnabled = true
         imageView.image = UIImage(named: Constants.redCar)
         imageView.clipsToBounds = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        imageView.addGestureRecognizer(tapGesture)
         return imageView
     }()
+    
+    private var selectedImage: UIImageView?
     
     private var carStackView = UIStackView()
     private var obstaclesStackView = UIStackView()
@@ -104,7 +110,8 @@ final class SettingsViewController: UIViewController {
     }
     
     @objc private func saveSettings() {
-        print("save")
+      
+        navigationController?.popToRootViewController(animated: true)
     }
     
     @objc private func chooseUserPhoto() {
@@ -113,6 +120,17 @@ final class SettingsViewController: UIViewController {
         picker.delegate = self
         present(picker, animated: true)
     }
+    
+    @objc func imageTapped(_ sender: UITapGestureRecognizer) {
+        if let selectedImage = selectedImage {
+            selectedImage.backgroundColor = .white
+        }
+        if let imageView = sender.view as? UIImageView {
+            imageView.backgroundColor = .blue
+            selectedImage = imageView
+        }
+    }
+
     
     //MARK: - Functions
     

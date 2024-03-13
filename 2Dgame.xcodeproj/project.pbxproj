@@ -19,7 +19,7 @@
 		FA4AEBE52B7B4D4E0067DE9F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4AEBE42B7B4D4E0067DE9F /* SceneDelegate.swift */; };
 		FA4AEBEC2B7B4D4F0067DE9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA4AEBEB2B7B4D4F0067DE9F /* Assets.xcassets */; };
 		FA4AEBEF2B7B4D4F0067DE9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA4AEBED2B7B4D4F0067DE9F /* LaunchScreen.storyboard */; };
-		FA570A9E2B99EE8D00435D56 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA570A9D2B99EE8D00435D56 /* GameManager.swift */; };
+		FA570A9E2B99EE8D00435D56 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA570A9D2B99EE8D00435D56 /* StorageManager.swift */; };
 		FA6B51192B7CA34900CD90DC /* CGFloat + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6B51182B7CA34900CD90DC /* CGFloat + Extensions.swift */; };
 		FAA9BD402B8C85D70061F938 /* SpeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9BD3F2B8C85D70061F938 /* SpeedManager.swift */; };
 		FAA9BD442B8CA7230061F938 /* MoveCarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA9BD432B8CA7230061F938 /* MoveCarButton.swift */; };
@@ -46,7 +46,7 @@
 		FA4AEBEB2B7B4D4F0067DE9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA4AEBEE2B7B4D4F0067DE9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA4AEBF02B7B4D4F0067DE9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FA570A9D2B99EE8D00435D56 /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
+		FA570A9D2B99EE8D00435D56 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		FA6B51182B7CA34900CD90DC /* CGFloat + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat + Extensions.swift"; sourceTree = "<group>"; };
 		FAA9BD3F2B8C85D70061F938 /* SpeedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedManager.swift; sourceTree = "<group>"; };
 		FAA9BD432B8CA7230061F938 /* MoveCarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveCarButton.swift; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				FAD45CDE2B83775B00B185AD /* UserModel.swift */,
-				FA570A9D2B99EE8D00435D56 /* GameManager.swift */,
+				FA570A9D2B99EE8D00435D56 /* StorageManager.swift */,
 				FAA9BD3F2B8C85D70061F938 /* SpeedManager.swift */,
 				FA2D8AF42B8F1E41001BA344 /* AlertGameCrash.swift */,
 			);
@@ -308,7 +308,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA570A9E2B99EE8D00435D56 /* GameManager.swift in Sources */,
+				FA570A9E2B99EE8D00435D56 /* StorageManager.swift in Sources */,
 				FA43B7452B7B8C2F0087758C /* GameViewController.swift in Sources */,
 				FA43B74C2B7B8CF30087758C /* UIStackView + Extensions.swift in Sources */,
 				FA2D8AF52B8F1E41001BA344 /* AlertGameCrash.swift in Sources */,

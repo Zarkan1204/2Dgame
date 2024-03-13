@@ -118,6 +118,8 @@ final class GameViewController: UIViewController {
         }) { [weak self] _ in
             if car.layer.speed > .zero {
                 if !(car.layer.presentation()?.frame.intersects(self?.carImageView.frame ?? CGRect.zero) == true) {
+                    self?.score += Constants.score
+                    self?.updateScoreLabel()
                 }
                 self?.animateBarierCar()
             }
@@ -126,6 +128,7 @@ final class GameViewController: UIViewController {
         collisionTimer = Timer.scheduledTimer(withTimeInterval: Constants.interval, repeats: true) { [weak self] _ in
             guard let self else { return }
             if car.layer.presentation()?.frame.intersects(self.carImageView.frame) == true {
+                self.endGame()
                 self.showAlert()
                 self.collisionTimer?.invalidate()
                 car.layer.speed = .zero
@@ -155,6 +158,10 @@ final class GameViewController: UIViewController {
     
     private func exitGame() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    private func endGame() {
+        
     }
     
     //MARK: - @objc Functions
@@ -194,6 +201,7 @@ private enum Constants {
     static let two: CGFloat = 2
     static let one: CGFloat = 1
     static let interval = 0.01
+    static let score = 10
     static let greenCar = "greenCar"
     static let road = "road"
     static let redCar = "redCar"
