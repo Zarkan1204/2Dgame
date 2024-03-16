@@ -110,7 +110,13 @@ final class SettingsViewController: UIViewController {
     }
     
     @objc private func saveSettings() {
-      
+        guard let avatarImage = userPhotoImageView.image, let userName = nameTextfield.text, !userName.isEmpty else {
+            return
+        }
+        let user = User(name: userName, avatar: avatarImage)
+        StorageManager.shared.currentUser = user
+        StorageManager.shared.saveAvatar(avatarImage, for: userName)
+        StorageManager.shared.saveUsersData()
         navigationController?.popToRootViewController(animated: true)
     }
     
@@ -131,7 +137,6 @@ final class SettingsViewController: UIViewController {
         }
     }
 
-    
     //MARK: - Functions
     
     private func setupViews() {
@@ -142,7 +147,7 @@ final class SettingsViewController: UIViewController {
         nameStackView = UIStackView(arrangedSubviews: [nameLabel, nameTextfield], axis: .vertical, spacing: CGFloat.stackSpacing)
         view.addSubview(nameStackView)
         
-        carStackView = UIStackView(arrangedSubviews: [yellowCarPicture, redCarPicture], axis: .horizontal, spacing: .stackSpacing)
+        carStackView = UIStackView(arrangedSubviews: [redCarPicture, yellowCarPicture], axis: .horizontal, spacing: .stackSpacing)
         view.addSubview(carStackView)
         
         obstaclesStackView = UIStackView(arrangedSubviews: [obstaclesLabel, carStackView], axis: .vertical, spacing: CGFloat.stackSpacing)
@@ -171,12 +176,12 @@ final class SettingsViewController: UIViewController {
             make.left.equalToSuperview().offset(CGFloat.leftInset)
         }
         
-        yellowCarPicture.snp.makeConstraints { make in
+        redCarPicture.snp.makeConstraints { make in
             make.width.equalTo(CGFloat.pictureWidth)
             make.height.equalTo(CGFloat.pictureHeight)
         }
         
-        redCarPicture.snp.makeConstraints { make in
+        yellowCarPicture.snp.makeConstraints { make in
             make.width.equalTo(CGFloat.pictureWidth)
             make.height.equalTo(CGFloat.pictureHeight)
         }

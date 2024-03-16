@@ -13,7 +13,7 @@ enum Speed: Double {
     case hard = 2.0
 }
 
-class SpeedManager {
+final class SpeedManager {
     
     static let shared = SpeedManager()
     private let speedKey = "selectedSpeed"

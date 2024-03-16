@@ -27,9 +27,10 @@ final class ScoreViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        users = StorageManager.shared.users
         setupViews()
         setupLayout()
+        scoreTableView.reloadData()
     }
     
     //MARK: - Functions
@@ -60,6 +61,16 @@ extension ScoreViewController:  UITableViewDataSource, UITableViewDelegate {
         }
         cell.configure(with: users[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            _ = users.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            StorageManager.shared.users = users
+            StorageManager.shared.saveUsersData()
+            tableView.reloadData()
+        }
     }
 }
 

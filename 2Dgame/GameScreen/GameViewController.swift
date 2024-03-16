@@ -78,6 +78,15 @@ final class GameViewController: UIViewController {
         animateBarierCar()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        collisionTimer?.invalidate()
+    }
+    
+    deinit {
+        collisionTimer?.invalidate()
+    }
+    
     //MARK: - Functions
     
     private func loadSpeed() {
@@ -161,7 +170,10 @@ final class GameViewController: UIViewController {
     }
     
     private func endGame() {
-        
+        if StorageManager.shared.currentUser == nil { return }
+        StorageManager.shared.currentUser?.score = score
+        StorageManager.shared.saveCurrentUser()
+        StorageManager.shared.saveUsersData()
     }
     
     //MARK: - @objc Functions

@@ -15,6 +15,7 @@ final class ScoreTableViewCell: UITableViewCell {
     private var avatarImageView: UIImageView = {
         let image = UIImageView(frame: .zero)
         image.layer.cornerRadius = CGFloat.cornerRadius
+        image.backgroundColor = .blue
         image.clipsToBounds = true
         return image
     }()

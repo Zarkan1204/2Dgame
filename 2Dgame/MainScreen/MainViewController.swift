@@ -14,13 +14,13 @@ final class MainViewController: UIViewController {
     
     private let roadImageView: UIImageView = {
         let roadImage = UIImageView()
-        roadImage.image = UIImage(named: "road")
+        roadImage.image = UIImage(named: Constants.road)
         return roadImage
     }()
     
-    private lazy var startButton = MainButton(text: "START")
-    private lazy var settingsButton = MainButton(text: "SETTINGS")
-    private lazy var recordsButton = MainButton(text: "RECORDS")
+    private lazy var startButton = MainButton(text: Constants.start)
+    private lazy var settingsButton = MainButton(text: Constants.settings)
+    private lazy var recordsButton = MainButton(text: Constants.records)
     
     private var stackView = UIStackView()
     
@@ -82,4 +82,11 @@ final class MainViewController: UIViewController {
         let scoreVC = ScoreViewController()
         navigationController?.pushViewController(scoreVC, animated: false)
     }
+}
+
+private enum Constants {
+    static let road = "road"
+    static let start = "START"
+    static let settings = "SETTINGS"
+    static let records = "RECORDS"
 }

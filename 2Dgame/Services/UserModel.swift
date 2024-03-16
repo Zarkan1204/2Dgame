@@ -9,7 +9,7 @@ import UIKit
 
 struct User: Codable {
     var name: String
-    var score: Int = 0 
+    var score: Int = 0
     var avatar: UIImage?
     
     enum CodingKeys: String, CodingKey {

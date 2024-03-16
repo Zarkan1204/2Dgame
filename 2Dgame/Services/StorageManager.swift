@@ -15,6 +15,7 @@ final class StorageManager {
     var users: [User] = []
     
     private init() {
+        loadUsersData()
         getCurrentUser()
     }
     
@@ -29,7 +30,10 @@ final class StorageManager {
             users.append(user)
         }
     }
-    
+}
+
+extension StorageManager {
+   
     func saveAvatar(_ image: UIImage, for name: String) {
         let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("\(name).png")
         if let data = image.pngData() {
@@ -44,27 +48,27 @@ final class StorageManager {
     }
     
     func saveUsersData() {
-            DispatchQueue.main.async { [weak self] in
-                UserDefaults.standard.saveUsers(self?.users ?? [])
-                for user in self?.users ?? [] {
-                    if let avatar = user.avatar {
-                        self?.saveAvatar(avatar, for: user.name)
-                    }
+        DispatchQueue.global(qos: .userInteractive).async { [weak self] in
+            UserDefaults.standard.saveUsers(self?.users ?? [])
+            for user in self?.users ?? [] {
+                if let avatar = user.avatar {
+                    self?.saveAvatar(avatar, for: user.name)
                 }
             }
         }
+    }
     
     func loadUsersData() {
         if let loadedUsers = UserDefaults.standard.loadUsers() {
-                self.users = loadedUsers
-                for (index, user) in loadedUsers.enumerated() {
-                    self.users[index].avatar = self.loadAvatar(name: user.name)
-                }
+            self.users = loadedUsers
+            for (index, user) in loadedUsers.enumerated() {
+                self.users[index].avatar = self.loadAvatar(name: user.name)
             }
         }
+    }
 }
 
-private extension String {
+extension String {
     static let key = "key"
     static let name = "Player"
 }
